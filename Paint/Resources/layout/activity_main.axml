@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:id="@+id/ll_paint"
+	android:gravity="bottom"
+	android:orientation="vertical">
+	<ImageView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:id="@+id/iv_canvas"
+		android:layout_weight="32"
+		android:background="#ffffffff" />
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center">
+		<SeekBar
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/sb_width"
+			android:layout_weight="1"
+			android:max="32"
+			android:progress="4" />
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<EditText
+			android:inputType="textMultiLine"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:id="@+id/et_text"
+			android:hint="文本"
+			android:gravity="center"
+			android:visibility="gone" />
+		<SeekBar
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/sb_size"
+			android:layout_weight="1"
+			android:max="256"
+			android:progress="64"
+			android:visibility="gone"
+			android:layout_gravity="center" />
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_weight="3"
+			android:orientation="vertical">
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text="█"
+				android:id="@+id/b_red"
+				android:layout_weight="1"
+				android:textColor="#ffff0000" />
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text="█"
+				android:id="@+id/b_yellow"
+				android:layout_weight="1"
+				android:textColor="#ffffff00" />
+		</LinearLayout>
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_weight="3"
+			android:orientation="vertical">
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text="█"
+				android:id="@+id/b_green"
+				android:layout_weight="1"
+				android:textColor="#ff00ff00" />
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text="█"
+				android:id="@+id/b_cyan"
+				android:layout_weight="1"
+				android:textColor="#ff00ffff" />
+		</LinearLayout>
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_weight="3"
+			android:orientation="vertical">
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text="█"
+				android:id="@+id/b_blue"
+				android:layout_weight="1"
+				android:textColor="#ff0000ff"/>
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text="█"
+				android:id="@+id/b_magenta"
+				android:layout_weight="1"
+				android:textColor="#ffff00ff" />
+		</LinearLayout>
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_weight="3"
+			android:orientation="vertical">
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text="█"
+				android:id="@+id/b_black"
+				android:layout_weight="1"
+				android:textColor="#ff000000" />
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text="█"
+				android:id="@+id/b_white"
+				android:layout_weight="1"
+				android:textColor="#ffffffff" />
+		</LinearLayout>
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="████████"
+			android:id="@+id/b_color"
+			android:layout_weight="2"
+			android:textColor="#ff000000" />
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="淸空"
+			android:id="@+id/b_clear" />
+	</LinearLayout>
+	<HorizontalScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<RadioGroup
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/rg_tool"
+			android:layout_weight="1">
+			<RadioButton
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:checked="true"
+				android:text="鉛筆"
+				android:id="@+id/rb_pencil" />
+			<RadioButton
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:text="軟筆"
+				android:id="@+id/rb_handwriting" />
+			<RadioButton
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:text="塡充"
+				android:id="@+id/rb_fill" />
+			<RadioButton
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:text="文本"
+				android:id="@+id/rb_text" />
+			<RadioButton
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:text="橡皮"
+				android:id="@+id/rb_eraser" />
+		</RadioGroup>
+	</HorizontalScrollView>
+</LinearLayout>
