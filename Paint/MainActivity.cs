@@ -123,8 +123,11 @@ namespace Paint
 
         private void BClear_Click(object sender, EventArgs e)
         {
-            canvas.DrawColor(eraserColor);
-            ivCanvas.SetImageBitmap(bitmap);
+            if (bitmap != null)
+            {
+                canvas.DrawColor(eraserColor);
+                ivCanvas.SetImageBitmap(bitmap);
+            }
         }
 
         private void BMaterialDesignColor_Click(object sender, EventArgs e)
@@ -183,19 +186,22 @@ namespace Paint
                             a = d / (float)Math.Pow(d, 2),
                             w = 0,
                             width = (float)Math.Pow(1 - d / size, 10) * paint.StrokeWidth,
-                            xpd = (x - prevX) / d, ypd = (y - prevY) / d; 
-                        for (float f = 0; f < d; f += 2)
+                            xpd = (x - prevX) / d, ypd = (y - prevY) / d;
+                        if (width >= Handwriting.width)
                         {
-                            if (width >= Handwriting.width)
+                            for (float f = 0; f < d; f += 4)
                             {
                                 w = a * (float)Math.Pow(f, 2) / d * (width - Handwriting.width) + Handwriting.width;
+                                canvas.DrawBitmap(Handwriting.brush, new Rect(0, 0, 192, 192), new Rect((int)(xpd * f + prevX - w), (int)(ypd * f + prevY - w), (int)(xpd * f + prevX + w), (int)(ypd * f + prevY + w)), paint);
                             }
-                            else
+                        }
+                        else
+                        {
+                            for (float f = 0; f < d; f += 4)
                             {
                                 w = (float)Math.Sqrt(f / a) / d * (width - Handwriting.width) + Handwriting.width;
+                                canvas.DrawBitmap(Handwriting.brush, new Rect(0, 0, 192, 192), new Rect((int)(xpd * f + prevX - w), (int)(ypd * f + prevY - w), (int)(xpd * f + prevX + w), (int)(ypd * f + prevY + w)), paint);
                             }
-                            
-                            canvas.DrawBitmap(Handwriting.brush, new Rect(0, 0, 192, 192), new Rect((int)(xpd * f + prevX - w), (int)(ypd * f + prevY - w), (int)(xpd * f + prevX + w), (int)(ypd * f + prevY + w)), paint);
                         }
                         Handwriting.distance = d;
                         Handwriting.width = w;
